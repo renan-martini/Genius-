@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@600&display=swap');
+html, body{
+  width: 100%;
+  height: 100%;
+}
+
+#welcomeGenius{
+  font-family: 'Alfa Slab One', cursive;
+  color: #24057a;
+  font-size: 200px
+}
+#container{
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#btnStart{
+  font-family: 'Inter', sans-serif;
+  width: 200px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 0.3px;
+  border-radius: 10px;
+  position: absolute;
+
+}
+#contColors{
+  background: transparent;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#btnVerde{
+  background: green;
+ width: 250px;
+ height: 250px;
+ border-radius: 20%;
+}
+#btnAzul{
+  width: 250px;
+  height: 250px;
+  background: blue;
+  border-radius: 20%;
+}
+#btnVermelho{
+  width: 250px;
+  height: 250px;
+  background: red;
+  border-radius: 20%;
+}
+#btnAmarelo{
+  width: 250px;
+  height: 250px;
+  background: yellow;
+  border-radius: 20%;
+}
+#logoKenzie{
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  display: flex;
+  position: absolute;
+}
+img{
+  border-radius: 50%;}
