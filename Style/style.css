@@ -13,7 +13,10 @@ html, body{
 #welcomeGenius{
   font-family: 'Alfa Slab One', cursive;
   color: #24057a;
-  font-size: 200px
+  font-size: 200px;
+  margin: 0% 18%;
+  width: 73%;
+ 
 }
 #container{
   height: 100%;
@@ -27,13 +30,15 @@ html, body{
   font-family: 'Inter', sans-serif;
   width: 200px;
   height: 70px;
-  display: flex;
   align-items: center;
   justify-content: center;
   border: solid 0.3px;
   border-radius: 10px;
-  position: absolute;
+}
 
+#btnStart:hover{
+  background-color: rgb(207, 204, 204);
+  cursor: pointer;
 }
 #contColors{
   background: transparent;
@@ -44,29 +49,85 @@ html, body{
   justify-content: center;
   flex-wrap: wrap;
 }
-#btnVerde{
+#verde{
   background: green;
  width: 250px;
  height: 250px;
  border-radius: 20%;
 }
-#btnAzul{
+#verde:hover{
+  transition: 300ms;
+  box-shadow: -8px -4px 42px 9px rgba(75,209,75,1);
+  -webkit-box-shadow: -8px -4px 42px 9px rgba(75,209,75,1);
+  -moz-box-shadow: -8px -4px 42px 9px rgba(75,209,75,1);
+  cursor: pointer;
+}
+.verdePisca {
+  background-color: #02ff02;
+  -webkit-box-shadow: -8px -4px 42px 9px rgba(75,209,75,1);
+  -moz-box-shadow: -8px -4px 42px 9px rgba(75,209,75,1);
+  box-shadow: -8px -4px 42px 9px rgba(75,209,75,1);
+  transition: 200ms;
+}
+#azul{
   width: 250px;
   height: 250px;
   background: blue;
   border-radius: 20%;
 }
-#btnVermelho{
+#azul:hover {
+  transition: 300ms;
+  -webkit-box-shadow: 22px 20px 42px 9px rgb(0, 0, 253);
+  -moz-box-shadow: 22px 20px 42px 9px rgb(0, 0, 255);
+  box-shadow: 22px 20px 42px 9px rgb(0, 0, 255);
+  cursor: pointer;
+}
+.azulPisca {
+  background-color: #0000ff;
+  transition: 200ms;
+  -webkit-box-shadow: 22px 20px 42px 9px rgb(0, 0, 247);
+  -moz-box-shadow: 22px 20px 42px 9px rgb(0, 0, 255);
+  box-shadow: 22px 20px 42px 9px rgb(0, 0, 245);
+}
+#vermelho{
   width: 250px;
   height: 250px;
   background: red;
   border-radius: 20%;
 }
-#btnAmarelo{
+#vermelho:hover {
+  transition: 300ms;
+  -webkit-box-shadow: 10px -4px 42px 9px rgb(209, 75, 75);
+  -moz-box-shadow: 10px -4px 42px 9px rgb(209, 75, 75);
+  box-shadow: 10px -4px 42px 9px rgb(209, 75, 75);
+  cursor: pointer;
+}
+.vermelhoPisca {
+  background-color: rgb(255, 0, 0);
+  transition: 200ms;
+  -webkit-box-shadow: 10px -4px 42px 9px rgb(209, 75, 75);
+  -moz-box-shadow: 10px -4px 42px 9px rgb(209, 75, 75);
+  box-shadow: 10px -4px 42px 9px rgb(209, 75, 75);
+}
+#amarelo{
   width: 250px;
   height: 250px;
   background: yellow;
   border-radius: 20%;
+}
+#amarelo:hover {
+  transition: 300ms;
+  -webkit-box-shadow: -25px 10px 42px 9px rgba(222,222,76,1);
+  -moz-box-shadow: -25px 10px 42px 9px rgba(222,222,76,1);
+  box-shadow: -25px 10px 42px 9px rgba(222,222,76,1);
+  cursor: pointer;
+}
+.amareloPisca {
+  background-color: #ffff00;
+  transition: 200ms;
+  -webkit-box-shadow: -25px 10px 42px 9px rgba(222,222,76,1);
+  -moz-box-shadow: -25px 10px 42px 9px rgba(222,222,76,1);
+  box-shadow: -25px 10px 42px 9px rgba(222,222,76,1);
 }
 #logoKenzie{
   width: 250px;

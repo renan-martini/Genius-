@@ -1,26 +1,20 @@
 // INTERFACE INICIAL
 let container = document.getElementById('container')
-let btnStart = document.createElement('btnStart')
-btnStart.innerText = "START"
-btnStart.id = "btnStart"
-//container.appendChild(btnStart)
 
-
-setTimeout(interface, 3000)
+setTimeout(interface, 3)
 let body = document.querySelector('body')
-//body.addEventListener('click', () => {clearInterval(carregarInterface)})
 
 
+let contColors = document.getElementById('contColors')
 function genius(){
-  let contColors = document.getElementById('contColors')
   let btnAzul = document.createElement('div')
-  btnAzul.id = 'btnAzul'
+  btnAzul.id = 'azul'
   let btnVermelho = document.createElement('div')
-  btnVermelho.id = 'btnVermelho'
+  btnVermelho.id = 'vermelho'
   let btnAmarelo = document.createElement('div')
-  btnAmarelo.id = 'btnAmarelo'
+  btnAmarelo.id = 'amarelo'
   let btnVerde = document.createElement('div')
-  btnVerde.id = 'btnVerde'
+  btnVerde.id = 'verde'
   let logoKenzie = document.createElement('div')
   logoKenzie.id = 'logoKenzie'
   let imgKenzie = document.createElement('img')
@@ -32,6 +26,12 @@ function genius(){
   contColors.appendChild(btnVerde)
   logoKenzie.appendChild(imgKenzie)
   contColors.appendChild(logoKenzie)
+
+  const btnStart = document.createElement('button')
+  btnStart.addEventListener('click', start)
+  btnStart.id = 'btnStart'
+  btnStart.innerText = 'START'
+  container.appendChild(btnStart)
 
 }
 
@@ -66,7 +66,7 @@ function createPlacar(){
 
 function interface(){
   let welcome = document.getElementById('divWelcome')
-  welcome.parentElement.removeChild(welcome)
+  container.removeChild(welcome)
   genius()
   createPlacar()
 }
@@ -77,3 +77,6 @@ function interface(){
  * 
  */
 
+function placar(){
+
+}

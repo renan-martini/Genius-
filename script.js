@@ -1,17 +1,67 @@
-let listaRandom = [] //lista Ramdomizada que vai piscar na tela
-let listaClicada = []
+let listaRandom = []; //lista Ramdomizada que vai piscar na tela
+let listaClicada = [];
 const cores = ["verde", "vermelho", "amarelo", "azul"]
 let isClickable = false
+let score = 0
+let record = 0
 
-const startBtn = document.getElementById("startBtn")
+// INTERFACE INICIAL
+let container = document.getElementById('container')
 
-startBtn.addEventListener("click", start)
+setTimeout(interface, 3000)
+//setTimeout(splash, 99999)
+
+let body = document.querySelector('body')
+
+
+let contColors = document.getElementById('contColors')
+function genius(){
+  let btnAzul = document.createElement('div')
+  btnAzul.id = 'azul'
+  let btnVermelho = document.createElement('div')
+  btnVermelho.id = 'vermelho'
+  let btnAmarelo = document.createElement('div')
+  btnAmarelo.id = 'amarelo'
+  let btnVerde = document.createElement('div')
+  btnVerde.id = 'verde'
+  let logoKenzie = document.createElement('div')
+  logoKenzie.id = 'logoKenzie'
+  let imgKenzie = document.createElement('img')
+  imgKenzie.src = '/img/logoKenzie.png'
+
+  contColors.appendChild(btnVerde)
+  contColors.appendChild(btnVermelho)
+  contColors.appendChild(btnAmarelo)
+  contColors.appendChild(btnAzul)
+  logoKenzie.appendChild(imgKenzie)
+  contColors.appendChild(logoKenzie)
+  
+}
+
+function startButton(){
+    const btnStart = document.createElement('button')
+    btnStart.id = 'btnStart'
+    btnStart.innerText = 'START'
+    container.appendChild(btnStart)
+    btnStart.addEventListener("click", start)
+}
+
+function interface(){
+  let welcome = document.getElementById('divWelcome')
+  welcome.parentElement.removeChild(welcome)
+  contColors.innerHTML = ''
+  genius()
+  startButton()
+  createPlacar()
+  
+}
 
 function start(){
-    startBtn.innerText = "RESTART"
+    btnStart.innerText = "RESTART"
     listaRandom = []
     listaClicada = []
-
+    contColors.innerHTML = ''
+    genius()
     piscar()
 }
 
@@ -41,11 +91,9 @@ function piscar(){
 }
 
 
+//const contColors = document.getElementById("contColors")
 
-
-const container = document.getElementById("container")
-
-container.addEventListener("click", verificarClique)
+contColors.addEventListener("click", verificarClique)
 
 function verificarClique(event){
     
@@ -64,6 +112,9 @@ function verificarClique(event){
         if(compararCores() && listaRandom.length === listaClicada.length){
             //O PLAYER ACERTOU A RODADA
             listaClicada = []
+            score++
+            let scoreAtual = document.getElementById("scoreAtual")
+            scoreAtual.innerText = score + ""
             piscar()
         }else if (compararCores()){
             //O PLAYER ACERTOU A COR MAS AINDA FALTA CORES
@@ -71,7 +122,16 @@ function verificarClique(event){
             isClickable = true
         }else if (!compararCores()){
             //O PLAYER ERROU!
-            alert("voce errou")
+            alert("Ops.. This was not a better idea !")
+            if(score > record){
+                record = score
+                let recordAtual = document.getElementById("recordAtual")
+                recordAtual.innerText = record
+            }
+            score = 0
+            let scoreAtual = document.getElementById("scoreAtual")
+            scoreAtual.innerText = score + ""
+            btnStart.innerText = "START"
         }
     }
    
@@ -86,3 +146,30 @@ function compararCores(){
     return true
 }
 
+function createPlacar(){
+    let placar = document.createElement("div")
+    let titulo = document.createElement("h2")
+    let scoreText = document.createElement("span")
+    let scoreValor = document.createElement("span")
+    let recordText = document.createElement("span")
+    let recordValor = document.createElement("span")
+  
+    placar.id = "placar"
+    scoreValor.id = "scoreAtual"
+    recordValor.id = "recordAtual"
+  
+    titulo.innerText = "PLACAR"
+    scoreText.innerText = "SCORE: "
+    scoreValor.innerText = score + ""
+    recordText.innerText = "RECORD: "
+    recordValor.innerText = record + ""
+  
+    placar.appendChild(titulo)
+    placar.appendChild(scoreText)
+    placar.appendChild(scoreValor)
+    placar.appendChild(recordText)
+    placar.appendChild(recordValor)
+  
+    container.appendChild(placar)
+  
+  }
