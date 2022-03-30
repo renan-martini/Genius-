@@ -56,7 +56,10 @@ function interface(){
   
 }
 
+let startGame = 0
 function start(){
+    startGame = Date.now()
+    console.log(startGame)
     btnStart.innerText = "RESTART"
     listaRandom = []
     listaClicada = []
@@ -103,7 +106,7 @@ function piscar(){
 //const contColors = document.getElementById("contColors")
 
 contColors.addEventListener("click", verificarClique)
-
+let stopGame = Date.now()
 function verificarClique(event){
     
     /* Só pode aceitar o clique quando for a hora do 
@@ -132,6 +135,12 @@ function verificarClique(event){
         }else if (!compararCores()){
             //O PLAYER ERROU!
             alert("Ops.. This was not a better idea !")
+            stopGame = Date.now()
+            let time = (stopGame -startGame) / 1000
+            let timeValor = document.getElementById('timeValor')
+            timeValor.innerText = `${time} seconds`
+            
+            //console.log(time)
             if(score > record){
                 record = score
                 let recordAtual = document.getElementById("recordAtual")
@@ -158,27 +167,45 @@ function compararCores(){
 function createPlacar(){
     let placar = document.createElement("div")
     let titulo = document.createElement("h2")
+    let divScore = document.createElement('div')
     let scoreText = document.createElement("span")
     let scoreValor = document.createElement("span")
+    let divRecord = document.createElement('div')
     let recordText = document.createElement("span")
     let recordValor = document.createElement("span")
+    let divTime = document.createElement('div')
+    let timeText = document.createElement("span")
+    let timeValor = document.createElement("span")
+    
   
     placar.id = "placar"
+    divRecord.className = 'divResultPlacar'
+    divScore.className = 'divResultPlacar'
+    divTime.className = 'divResultPlacar'
     scoreValor.id = "scoreAtual"
     recordValor.id = "recordAtual"
-  
     titulo.innerText = "PLACAR"
     scoreText.innerText = "SCORE: "
     scoreValor.innerText = score + ""
     recordText.innerText = "RECORD: "
     recordValor.innerText = record + ""
+    timeText.innerText = "TIME"
+    timeValor.innerText = 0
+    timeValor.id = "timeValor"
+    
+  
   
     placar.appendChild(titulo)
-    placar.appendChild(scoreText)
-    placar.appendChild(scoreValor)
-    placar.appendChild(recordText)
-    placar.appendChild(recordValor)
-  
+    divScore.appendChild(scoreText)
+    divScore.appendChild(scoreValor)
+    placar.appendChild(divScore)
+    divRecord.appendChild(recordText)
+    divRecord.appendChild(recordValor)
+    placar.appendChild(divRecord)
+    divTime.appendChild(timeText)
+    divTime.appendChild(timeValor)
+    placar.appendChild(divTime)
+    
     container.appendChild(placar)
   
   }

@@ -143,8 +143,10 @@ img{
   border: dotted blue 1px;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   flex-wrap: wrap;
   width: 200px;
+  padding:0.5% ;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -155,11 +157,19 @@ h2 {
 }
 
 #scoreAtual {
-  width: 66%;
+  margin-left: auto;
   text-align: right;
 }
 #recordAtual {
-  width: 60.2%;
+  margin-left: auto;
+  text-align: right;
+}
+#timeValor{
+  margin-left: auto;
   text-align: right;
   margin-bottom: 3px;
+
+}
+.divResultPlacar{
+  display: flex;
 }
