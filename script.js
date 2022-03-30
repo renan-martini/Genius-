@@ -46,10 +46,19 @@ function startButton(){
     btnStart.addEventListener("click", start)
 }
 
+function instructions(){
+    let textBox = document.getElementById("textBox")
+    let text = document.createElement("p")
+    text.id = "text"
+    text.innerText = "CLIQUE NO BOTÃO 'START' PARA COMEÇAR"
+    textBox.appendChild(text)
+}
+
 function interface(){
   let welcome = document.getElementById('divWelcome')
   welcome.parentElement.removeChild(welcome)
   contColors.innerHTML = ''
+  instructions()
   genius()
   startButton()
   createPlacar()
@@ -68,6 +77,9 @@ function start(){
     score = 0
     let scoreAtual = document.getElementById("scoreAtual")
     scoreAtual.innerText = score + ""
+
+    let text = document.getElementById("text")
+    text.innerText = "MEMORIZE A SEQUENCIA!"
     
     contColors.innerHTML = ''
     genius()
@@ -89,14 +101,19 @@ function piscar(){
     function piscarListaRandom(lista){
         if(i === lista.length - 1){
             clearInterval(myInterval)
+            setTimeout(() => {
+                let text = document.getElementById("text")
+                text.innerText = "CLIQUE NAS CORES NA ORDEM CORRETA"    
+                isClickable = true
+            }, 450)
+            
         }
             let corPiscada = document.getElementById(cores[listaRandom[i]])
             corPiscada.classList.toggle(cores[listaRandom[i]] + "Pisca")
             i++
             setTimeout(() => {corPiscada.classList.toggle(cores[listaRandom[i - 1]] + "Pisca")}, 400)
-        }  
-        
-        isClickable = true
+        } 
+
 }
 
 
@@ -124,6 +141,10 @@ function verificarClique(event){
             score++
             let scoreAtual = document.getElementById("scoreAtual")
             scoreAtual.innerText = score + ""
+
+            let text = document.getElementById("text")
+            text.innerText = "MUITO BEM! MEMORIZE NOVAMENTE!"    
+            isClickable = true
             piscar()
         }else if (compararCores()){
             //O PLAYER ACERTOU A COR MAS AINDA FALTA CORES
@@ -131,7 +152,10 @@ function verificarClique(event){
             isClickable = true
         }else if (!compararCores()){
             //O PLAYER ERROU!
-            alert("Ops.. This was not a better idea !")
+            alert("Ops.. That was not a good idea!")
+            let text = document.getElementById("text")
+            text.innerText = "QUE PENA! VOCÊ ERROU! CLIQUE EM START SE QUISER JOGAR NOVAMENTE!"    
+            isClickable = true
             if(score > record){
                 record = score
                 let recordAtual = document.getElementById("recordAtual")

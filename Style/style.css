@@ -42,8 +42,8 @@ html, body{
 }
 #contColors{
   background: transparent;
-  width: 500px;
   height: 500px;
+  width: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,8 +51,8 @@ html, body{
 }
 #verde{
   background: green;
- width: 250px;
- height: 250px;
+ width: 50%;
+ height: 50%;
  border-radius: 20%;
 }
 #verde:hover{
@@ -70,8 +70,8 @@ html, body{
   transition: 200ms;
 }
 #azul{
-  width: 250px;
-  height: 250px;
+  width: 50%;
+  height: 50%;
   background: blue;
   border-radius: 20%;
 }
@@ -90,8 +90,8 @@ html, body{
   box-shadow: 22px 20px 42px 9px rgb(0, 0, 245);
 }
 #vermelho{
-  width: 250px;
-  height: 250px;
+  width: 50%;
+  height: 50%;
   background: red;
   border-radius: 20%;
 }
@@ -110,8 +110,8 @@ html, body{
   box-shadow: 10px -4px 42px 9px rgb(209, 75, 75);
 }
 #amarelo{
-  width: 250px;
-  height: 250px;
+  width: 50%;
+  height: 50%;
   background: yellow;
   border-radius: 20%;
 }
@@ -136,8 +136,12 @@ html, body{
   display: flex;
   position: absolute;
 }
-img{
-  border-radius: 50%;}
+#logoKenzie > img{
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+
+}
 
 #placar {
   border: dotted blue 1px;
