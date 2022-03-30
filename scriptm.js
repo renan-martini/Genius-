@@ -24,7 +24,7 @@ function genius(){
   let logoKenzie = document.createElement('div')
   logoKenzie.id = 'logoKenzie'
   let imgKenzie = document.createElement('img')
-  imgKenzie.src = '/img/logoKenzie.png'
+  imgKenzie.src = './src/logokenzie.png'
 
   contColors.appendChild(btnAzul)
   contColors.appendChild(btnVermelho)
@@ -34,11 +34,41 @@ function genius(){
   contColors.appendChild(logoKenzie)
 
 }
+
+function createPlacar(){
+  let placar = document.createElement("div")
+  let titulo = document.createElement("h2")
+  let scoreText = document.createElement("span")
+  let scoreValor = document.createElement("span")
+  let recordText = document.createElement("span")
+  let recordValor = document.createElement("span")
+
+  placar.id = "placar"
+  scoreValor.id = "scoreAtual"
+  recordValor.id = "recordAtual"
+
+  titulo.innerText = "PLACAR"
+  scoreText.innerText = "SCORE: "
+  scoreValor.innerText = "0"
+  recordText.innerText = "RECORD: "
+  recordValor.innerText = "0"
+
+  placar.appendChild(titulo)
+  placar.appendChild(scoreText)
+  placar.appendChild(scoreValor)
+  placar.appendChild(recordText)
+  placar.appendChild(recordValor)
+
+  container.appendChild(placar)
+
+}
+
+
 function interface(){
   let welcome = document.getElementById('divWelcome')
-  welcome.innerHTML= ''
-  contColors.innerHTML = ''
+  welcome.parentElement.removeChild(welcome)
   genius()
+  createPlacar()
 }
 
 /** div PLACAR

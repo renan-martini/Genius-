@@ -4,6 +4,12 @@ html, body{
   height: 100%;
 }
 
+#divWelcome{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 #welcomeGenius{
   font-family: 'Alfa Slab One', cursive;
   color: #24057a;
@@ -15,7 +21,7 @@ html, body{
   background: transparent;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 #btnStart{
   font-family: 'Inter', sans-serif;
@@ -71,3 +77,28 @@ html, body{
 }
 img{
   border-radius: 50%;}
+
+#placar {
+  border: dotted blue 1px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 200px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h2 {
+  margin-top: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+#scoreAtual {
+  width: 66%;
+  text-align: right;
+}
+#recordAtual {
+  width: 60.2%;
+  text-align: right;
+  margin-bottom: 3px;
+}
