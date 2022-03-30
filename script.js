@@ -60,6 +60,15 @@ function start(){
     btnStart.innerText = "RESTART"
     listaRandom = []
     listaClicada = []
+    if(score > record){
+        record = score
+        let recordAtual = document.getElementById("recordAtual")
+        recordAtual.innerText = record
+    }
+    score = 0
+    let scoreAtual = document.getElementById("scoreAtual")
+    scoreAtual.innerText = score + ""
+    
     contColors.innerHTML = ''
     genius()
     piscar()
