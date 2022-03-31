@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Amatic+SC&family=Caveat&family=Inter:wght@600&display=swap');
+
 html, body{
   width: 100%;
   height: 100%;
@@ -26,8 +29,16 @@ html, body{
   align-items: center;
   justify-content: space-evenly;
 }
+#text{
+  font-family: 'Alfa Slab One', cursive;
+  font-weight: 600;
+  font-size: xx-large;
+  letter-spacing: 0.2em;
+  
+}
 #btnStart{
-  font-family: 'Inter', sans-serif;
+  font-family: 'Alfa Slab One', cursive;
+  letter-spacing: 7;
   width: 200px;
   height: 70px;
   align-items: center;
@@ -35,7 +46,6 @@ html, body{
   border: solid 0.3px;
   border-radius: 10px;
 }
-
 #btnStart:hover{
   background-color: rgb(207, 204, 204);
   cursor: pointer;
@@ -133,6 +143,7 @@ html, body{
   -moz-box-shadow: -25px 10px 42px 9px rgba(222,222,76,1);
   box-shadow: -25px 10px 42px 9px rgba(222,222,76,1);
   cursor: pointer;
+  
 }
 
 #amarelo:active{
@@ -161,14 +172,17 @@ html, body{
 }
 
 #placar {
-  border: dotted blue 1px;
+  border: dotted black 3px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   flex-wrap: wrap;
-  width: 200px;
+  height: auto;
+  width: 300px;
   padding:0.5% ;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Amatic SC', cursive;
+  font-weight: 600;
+  font-size: xx-large;
 }
 
 h2 {

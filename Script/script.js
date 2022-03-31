@@ -1,20 +1,29 @@
+function interface(){
+    let welcome = document.getElementById('divWelcome')
+    welcome.parentElement.removeChild(welcome)
+    contColors.innerHTML = ''
+  genius()
+  instructions()
+  //info()
+  startButton()
+  createPlacar()
+  
+}
+
+
+let body = document.querySelector('body')
+const cores = ["verde", "vermelho", "amarelo", "azul"]
 let listaRandom = []; //lista Ramdomizada que vai piscar na tela
 let listaClicada = [];
-const cores = ["verde", "vermelho", "amarelo", "azul"]
 let isClickable = false
 let score = 0
 let record = 0
 
 // INTERFACE INICIAL
-let container = document.getElementById('container')
-
 setTimeout(interface, 3000)
-//setTimeout(splash, 99999)
-
-let body = document.querySelector('body')
-
-
+let container = document.getElementById('container')
 let contColors = document.getElementById('contColors')
+// GENIUS
 function genius(){
   let btnAzul = document.createElement('div')
   btnAzul.id = 'azul'
@@ -27,7 +36,7 @@ function genius(){
   let logoKenzie = document.createElement('div')
   logoKenzie.id = 'logoKenzie'
   let imgKenzie = document.createElement('img')
-  imgKenzie.src = './img/logoKenzie.png'
+  imgKenzie.src = '/src/img/logoKenzie.png'
 
   contColors.appendChild(btnVerde)
   contColors.appendChild(btnVermelho)
@@ -37,34 +46,27 @@ function genius(){
   contColors.appendChild(logoKenzie)
   
 }
-
-function startButton(){
-    const btnStart = document.createElement('button')
-    btnStart.id = 'btnStart'
-    btnStart.innerText = 'START'
-    container.appendChild(btnStart)
-    btnStart.addEventListener("click", start)
-}
-
-function instructions(){
+// INICIAR O JOGO
+function instructions(){ // Instruções
     let textBox = document.getElementById("textBox")
     let text = document.createElement("p")
     text.id = "text"
     text.innerText = "CLIQUE NO BOTÃO 'START' PARA COMEÇAR"
     textBox.appendChild(text)
 }
+function info(){ // informações
+    let pop = document.createElement('div')
+    let p = document.createElement('p')
 
-function interface(){
-  let welcome = document.getElementById('divWelcome')
-  welcome.parentElement.removeChild(welcome)
-  contColors.innerHTML = ''
-  instructions()
-  genius()
-  startButton()
-  createPlacar()
-  
+    p.innerText = "Bem vindo ao Genius !Pense rápido e tente repetir as sequências de sinais corretamente, a sequência ficará cada vez mais longa."
 }
-
+function startButton(){ // Start
+    const btnStart = document.createElement('button')
+    btnStart.id = 'btnStart'
+    btnStart.innerText = 'START'
+    container.appendChild(btnStart)
+    btnStart.addEventListener("click", start)
+}
 let startGame = 0
 function start(){
     startGame = Date.now()
@@ -88,17 +90,15 @@ function start(){
     genius()
     piscar()
 }
-
+// Cores Aleatórias
 function getRndInteger(min, max) {
     //GERADOR DE NUMEROS ALEATORIOS
     return Math.floor(Math.random() * (max - min) ) + min;
   }
-
-function piscar(){
-
+function piscar(){ // Ação nas cores
     let num = getRndInteger(0, 4)
     listaRandom.push(num)
-    
+  
     let myInterval = setInterval(piscarListaRandom, 450, listaRandom)
     let i = 0
     function piscarListaRandom(lista){
@@ -115,13 +115,11 @@ function piscar(){
             corPiscada.classList.toggle(cores[listaRandom[i]] + "Pisca")
             i++
             setTimeout(() => {corPiscada.classList.toggle(cores[listaRandom[i - 1]] + "Pisca")}, 400)
-        } 
+        }
 
 }
 
-
-//const contColors = document.getElementById("contColors")
-
+    
 contColors.addEventListener("click", verificarClique)
 let stopGame = Date.now()
 function verificarClique(event){
@@ -143,7 +141,7 @@ function verificarClique(event){
             listaClicada = []
             score++
             let scoreAtual = document.getElementById("scoreAtual")
-            scoreAtual.innerText = score + ""
+            scoreAtual.innerText = score 
 
             let text = document.getElementById("text")
             text.innerText = "MUITO BEM! MEMORIZE NOVAMENTE!"    
@@ -155,27 +153,31 @@ function verificarClique(event){
             isClickable = true
         }else if (!compararCores()){
             //O PLAYER ERROU!
-            stopGame = Date.now()
-            let time = (stopGame -startGame) / 1000
-            let timeValor = document.getElementById('timeValor')
-            timeValor.innerText = `${time} seconds`
-            
-            alert("Ops.. That was not a good idea!")
-            let text = document.getElementById("text")
-            text.innerText = "QUE PENA! VOCÊ ERROU! CLIQUE EM START SE QUISER JOGAR NOVAMENTE!"    
-            isClickable = true
-            if(score > record){
-                record = score
-                let recordAtual = document.getElementById("recordAtual")
-                recordAtual.innerText = record
-            }
-            score = 0
-            let scoreAtual = document.getElementById("scoreAtual")
-            scoreAtual.innerText = score + ""
-            btnStart.innerText = "START"
+            falhou()
         }
     }
    
+}
+
+function falhou(){
+    stopGame = Date.now()
+    let time = (stopGame -startGame) / 1000
+    let timeValor = document.getElementById('timeValor')
+    timeValor.innerText = `${time} seconds`
+    
+    alert("Ops.. That was not a good idea!")
+    let text = document.getElementById("text")
+    text.innerText = "QUE PENA! VOCÊ ERROU! CLIQUE EM START SE QUISER JOGAR NOVAMENTE!"    
+    isClickable = true
+    if(score > record){
+        record = score
+        let recordAtual = document.getElementById("recordAtual")
+        recordAtual.innerText = record
+    }
+    score = 0
+    let scoreAtual = document.getElementById("scoreAtual")
+    scoreAtual.innerText = score + ""
+    btnStart.innerText = "START"
 }
 
 function compararCores(){
