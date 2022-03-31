@@ -86,9 +86,13 @@ function start(){
     let text = document.getElementById("text")
     text.innerText = "MEMORIZE A SEQUENCIA!"
     
-    contColors.innerHTML = ''
-    genius()
-    piscar()
+    
+    setTimeout(() => {
+        contColors.innerHTML = ''
+        genius()
+        piscar()
+    }, 1000);
+    
 }
 // Cores Aleatórias
 function getRndInteger(min, max) {
