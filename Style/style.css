@@ -6,20 +6,17 @@ html, body{
   width: 100%;
   height: 100%;
 }
-
 #divWelcome{
   width: 100%;
   display: flex;
   justify-content: center;
 }
-
 #welcomeGenius{
   font-family: 'Alfa Slab One', cursive;
   color: #24057a;
   font-size: 200px;
   margin: 0% 18%;
   width: 73%;
- 
 }
 #container{
   height: 100%;
@@ -34,7 +31,28 @@ html, body{
   font-weight: 600;
   font-size: xx-large;
   letter-spacing: 0.2em;
-  
+}
+.btnInfo{
+  width: 2em;
+  height: 2em;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  display: flex;
+  position: absolute;
+  margin-bottom: 30%;
+  margin-left: 10%;
+}
+.divPop{
+  width: 25em;
+  font-family: 'Amatic SC', cursive;
+  font-weight: 600;
+  font-size: xx-large;
+  display:none;
+  position: absolute;
+  margin-bottom: 30%;
+  margin-left: 55%;
+  flex-direction: column;
 }
 #btnStart{
   font-family: 'Alfa Slab One', cursive;
@@ -61,7 +79,7 @@ html, body{
 }
 #verde{
   background: green;
- width: 50%;
+  width: 50%;
  height: 50%;
  border-radius: 20%;
 }
@@ -143,9 +161,7 @@ html, body{
   -moz-box-shadow: -25px 10px 42px 9px rgba(222,222,76,1);
   box-shadow: -25px 10px 42px 9px rgba(222,222,76,1);
   cursor: pointer;
-  
 }
-
 #amarelo:active{
   transition: 100ms;
   background-color: rgb(240, 240, 116);
@@ -168,9 +184,7 @@ html, body{
   border-radius: 50%;
   width: 100%;
   height: 100%;
-
 }
-
 #placar {
   border: dotted black 3px;
   display: flex;
@@ -184,13 +198,11 @@ html, body{
   font-weight: 600;
   font-size: xx-large;
 }
-
-h2 {
+#placar > h2 {
   margin-top: 0px;
   width: 100%;
   text-align: center;
 }
-
 #scoreAtual {
   margin-left: auto;
   text-align: right;
@@ -203,7 +215,6 @@ h2 {
   margin-left: auto;
   text-align: right;
   margin-bottom: 3px;
-
 }
 .divResultPlacar{
   display: flex;

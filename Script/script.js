@@ -4,12 +4,10 @@ function interface(){
     contColors.innerHTML = ''
   genius()
   instructions()
-  //info()
+  info()
   startButton()
   createPlacar()
-  
 }
-
 
 let body = document.querySelector('body')
 const cores = ["verde", "vermelho", "amarelo", "azul"]
@@ -55,11 +53,33 @@ function instructions(){ // Instruções
     textBox.appendChild(text)
 }
 function info(){ // informações
+    let btn = document.createElement('button')
     let pop = document.createElement('div')
-    let p = document.createElement('p')
+    let p1 = document.createElement('p')
+    let p2 = document.createElement('p')
+    let p3 = document.createElement('p')
 
-    p.innerText = "Bem vindo ao Genius !Pense rápido e tente repetir as sequências de sinais corretamente, a sequência ficará cada vez mais longa."
+    p1.innerText = "Bem vindo ao Genius !"
+    p2.innerText = "Pense rápido e tente repetir as sequências de sinais corretamente, a sequência ficará cada vez mais longa."
+    p3.innerText = " Até onde consegue chegar ?     Lets Go !!"
+    btn.innerText = "?"
+    btn.className = "btnInfo"
+    pop.className = "divPop"
+
+    pop.appendChild(p1)
+    pop.appendChild(p2)
+    pop.appendChild(p3)
+    container.appendChild(btn)
+    container.appendChild(pop)
+
+    btn.addEventListener('mouseover', () => {
+        pop.style.display = "flex"
+    })
+    btn.addEventListener('mouseout', () => {
+        pop.style.display = "none"
+    })
 }
+
 function startButton(){ // Start
     const btnStart = document.createElement('button')
     btnStart.id = 'btnStart'
@@ -94,11 +114,11 @@ function start(){
     }, 1000);
     
 }
-// Cores Aleatórias
+// CORES ALEATÓRIAS
 function getRndInteger(min, max) {
     //GERADOR DE NUMEROS ALEATORIOS
     return Math.floor(Math.random() * (max - min) ) + min;
-  }
+}
 function piscar(){ // Ação nas cores
     let num = getRndInteger(0, 4)
     listaRandom.push(num)
@@ -123,7 +143,7 @@ function piscar(){ // Ação nas cores
 
 }
 
-    
+// VALIDAR CLICK   
 contColors.addEventListener("click", verificarClique)
 let stopGame = Date.now()
 function verificarClique(event){
@@ -163,6 +183,7 @@ function verificarClique(event){
    
 }
 
+// ERRANDO NO JOGO
 function falhou(){
     stopGame = Date.now()
     let time = (stopGame -startGame) / 1000
@@ -183,7 +204,6 @@ function falhou(){
     scoreAtual.innerText = score + ""
     btnStart.innerText = "START"
 }
-
 function compararCores(){
     for(let j = 0; j < listaClicada.length; j++){
         if(listaRandom[j] !== listaClicada[j]){
@@ -193,6 +213,7 @@ function compararCores(){
     return true
 }
 
+//PLACAR
 function createPlacar(){
     let placar = document.createElement("div")
     let titulo = document.createElement("h2")
