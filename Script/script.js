@@ -34,7 +34,7 @@ function genius(){
   let logoKenzie = document.createElement('div')
   logoKenzie.id = 'logoKenzie'
   let imgKenzie = document.createElement('img')
-  imgKenzie.src = '/src/img/logoKenzie.png'
+  imgKenzie.src = './src/img/logoKenzie.png'
 
   contColors.appendChild(btnVerde)
   contColors.appendChild(btnVermelho)
